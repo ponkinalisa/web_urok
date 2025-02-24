@@ -231,5 +231,32 @@ def my_suggestion(planet_name):
                 </html>'''
 
 
+@app.route('/results/<name>/<int:level>/<float:rating>')
+def results(name, level, rating):
+    return f'''<!doctype html>
+                <html lang="en">
+                  <head>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                    <link rel="stylesheet" 
+                    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+                    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+                    crossorigin="anonymous">
+                    <title>Результаты</title>
+                  </head>
+                  <body>
+                    <h1>Результаты отбора</h1>
+                    <h3>Претендента на участие в миссии {name}:</h3>
+                    <div class="p-3 mb-2 bg-success text-white" role="alert">
+                      Поздравляем! Ваш рейтинг после {level} этапа отбора:
+                    </div>
+                    <p>Составляет {rating}!</p>
+                    <div class="p-3 mb-2 bg-warning text-white" role="alert">
+                      Желаем удачи!
+                    </div>
+                  </body>
+                </html>'''
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
